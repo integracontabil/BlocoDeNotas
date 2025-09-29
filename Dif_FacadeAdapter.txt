@@ -1,0 +1,28 @@
+Claro! Os padrões de projeto *Facade* e *Adapter* são ambos usados para simplificar a interação com sistemas complexos, mas têm objetivos e implementações diferentes. Aqui estão as diferenças visíveis entre eles:
+
+### Padrão Facade
+
+1. **Objetivo**: O *Facade* fornece uma interface simplificada e unificada para um conjunto de interfaces em um subsistema. O objetivo é tornar um subsistema mais fácil de usar e entender para os clientes, ocultando a complexidade das interações entre os componentes do sistema.
+
+2. **Abstração**: Ele atua como uma camada intermediária que encapsula a complexidade e fornece uma interface mais simples. Os clientes interagem apenas com a fachada, não precisando se preocupar com os detalhes internos do subsistema.
+
+3. **Uso**: Usado para simplificar o acesso a um subsistema complexo. Geralmente, a fachada fornece métodos que agrupam e simplificam várias operações internas.
+
+4. **Exemplo**: Imagine um sistema de controle de mídia com várias classes para reprodução de áudio, vídeo e playlists. Uma fachada poderia fornecer métodos simples como `playMusic()` ou `playVideo()` que internamente chamam os métodos apropriados das classes complexas de áudio e vídeo.
+
+### Padrão Adapter
+
+1. **Objetivo**: O *Adapter* permite que classes com interfaces incompatíveis colaborem. Ele age como um "tradutor" entre duas interfaces, permitindo que classes que não foram projetadas para trabalhar juntas o façam.
+
+2. **Abstração**: Ele modifica a interface de uma classe existente para torná-la compatível com outra interface esperada. O cliente interage com a interface esperada, enquanto o adaptador se encarrega de converter as chamadas para a interface real.
+
+3. **Uso**: Usado para integrar classes que não foram projetadas para trabalhar juntas, mas precisam colaborar devido a requisitos de compatibilidade. O adaptador transforma a interface de uma classe para que ela se encaixe na interface esperada pelo cliente.
+
+4. **Exemplo**: Suponha que você tenha uma classe `Volt` que fornece energia em volts e uma classe `Charger` que espera uma interface em watts. Um adaptador pode ser criado para converter volts em watts, permitindo que a `Charger` use a `Volt` sem precisar conhecer sua interface original.
+
+### Resumo das Diferenças Visíveis
+
+- **Facade**: Simplifica o uso de um subsistema complexo fornecendo uma interface mais simples. Serve como uma camada de abstração para ocultar a complexidade do sistema.
+- **Adapter**: Ajusta a interface de uma classe existente para torná-la compatível com uma interface esperada. Facilita a integração entre componentes que não se encaixam diretamente.
+
+Visualmente, o *Facade* pode ser visto como um ponto único de entrada para um sistema complexo, enquanto o *Adapter* pode ser imaginado como uma ponte que ajusta as interfaces entre dois sistemas ou componentes diferentes.

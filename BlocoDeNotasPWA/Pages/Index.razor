@@ -1,0 +1,33 @@
+﻿@page "/"
+@inject NotaViewModel Vm
+
+<h3>Bloco de Notas</h3>
+
+<input @bind="Vm.Texto" placeholder="Digite uma anotação..." />
+<button @onclick="Vm.AdicionarNota">Salvar</button>
+
+<hr />
+
+<ul>
+    @foreach (var nota in Vm.Notas)
+    {
+        <li>
+            @nota.Texto
+            <button @onclick="() => Editar(nota)">Alterar</button>
+            <button @onclick="() => Vm.DeletarNota(nota.Id)">Deletar</button>
+        </li>
+    }
+</ul>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await Vm.CarregarNotas();
+    }
+
+    private async Task Editar(BlocoDeNotasPWA.Models.Nota nota)
+    {
+        Vm.Texto = nota.Texto;
+        await Vm.DeletarNota(nota.Id);
+    }
+}

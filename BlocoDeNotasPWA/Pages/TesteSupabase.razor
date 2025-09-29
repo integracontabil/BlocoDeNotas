@@ -1,0 +1,25 @@
+@page "/teste"
+@inject BlocoDeNotasPWA.Services.SupabaseService Supabase
+
+<h3>Teste Supabase</h3>
+
+<button @onclick="Carregar">Carregar notas do Supabase</button>
+
+<ul>
+    @if (listaNotas is not null)
+    {
+        @foreach (var n in listaNotas)
+        {
+            <li>@n.Texto (@n.Id)</li>
+        }
+    }
+</ul>
+
+@code {
+    private List<BlocoDeNotasPWA.Models.Nota>? listaNotas;
+
+    private async Task Carregar()
+    {
+        listaNotas = await Supabase.GetNotasAsync();
+    }
+}
