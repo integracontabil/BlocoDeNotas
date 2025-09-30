@@ -24,7 +24,7 @@ builder.Services.AddScoped<NotaViewModel>();
 
 var host = builder.Build();
 
-// inicializar AuthService antes da UI (restaura token/refresh se necessário)
+// inicializar AuthService antes da UI (restaura token-refresh se necessário)
 var auth = host.Services.GetRequiredService<AuthService>();
 await auth.InitializeAsync();
 
