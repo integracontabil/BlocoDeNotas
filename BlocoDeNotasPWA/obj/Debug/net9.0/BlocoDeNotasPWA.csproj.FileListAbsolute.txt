@@ -1170,10 +1170,10 @@ C:\dev\BlocoDeNotasPWA\bin\Debug\net9.0\wwwroot\_framework\Microsoft.AspNetCore.
 C:\dev\BlocoDeNotasPWA\bin\Debug\net9.0\Microsoft.AspNetCore.Components.Authorization.dll
 C:\dev\BlocoDeNotasPWA\obj\Debug\net9.0\webcil\Microsoft.AspNetCore.Components.Authorization.wasm
 C:\dev\BlocoDeNotasPWA\obj\Debug\net9.0\compressed\v6t1xdl1n0-qqf5xbpbs5.gz
-C:\dev\BlocoDeNotasPWA\bin\Debug\net9.0\wwwroot\_framework\BlocoDeNotasPWA.fnowbgpr0t.wasm
-C:\dev\BlocoDeNotasPWA\bin\Debug\net9.0\wwwroot\_framework\BlocoDeNotasPWA.xbnvrldars.pdb
-C:\dev\BlocoDeNotasPWA\bin\Debug\net9.0\wwwroot\_framework\BlocoDeNotasPWA.fnowbgpr0t.wasm.gz
-C:\dev\BlocoDeNotasPWA\bin\Debug\net9.0\wwwroot\_framework\BlocoDeNotasPWA.xbnvrldars.pdb.gz
-C:\dev\BlocoDeNotasPWA\obj\Debug\net9.0\compressed\p9dgwgfnfx-fnowbgpr0t.gz
-C:\dev\BlocoDeNotasPWA\obj\Debug\net9.0\compressed\0tr8pz2ym1-xbnvrldars.gz
-C:\dev\BlocoDeNotasPWA\obj\Debug\net9.0\compressed\4us24n4s5q-vgs8j2n0rl.gz
+C:\dev\BlocoDeNotasPWA\bin\Debug\net9.0\wwwroot\_framework\BlocoDeNotasPWA.u0qmg4osjm.wasm
+C:\dev\BlocoDeNotasPWA\bin\Debug\net9.0\wwwroot\_framework\BlocoDeNotasPWA.p0hqidq160.pdb
+C:\dev\BlocoDeNotasPWA\bin\Debug\net9.0\wwwroot\_framework\BlocoDeNotasPWA.u0qmg4osjm.wasm.gz
+C:\dev\BlocoDeNotasPWA\bin\Debug\net9.0\wwwroot\_framework\BlocoDeNotasPWA.p0hqidq160.pdb.gz
+C:\dev\BlocoDeNotasPWA\obj\Debug\net9.0\compressed\p9dgwgfnfx-u0qmg4osjm.gz
+C:\dev\BlocoDeNotasPWA\obj\Debug\net9.0\compressed\0tr8pz2ym1-p0hqidq160.gz
+C:\dev\BlocoDeNotasPWA\obj\Debug\net9.0\compressed\4us24n4s5q-eoollybvnx.gz
