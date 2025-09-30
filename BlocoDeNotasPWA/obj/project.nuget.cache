@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5YNecJkxo9E=",
+  "dgSpecHash": "j9IAvXvaG0E=",
   "success": true,
   "projectFilePath": "C:\\dev\\BlocoDeNotasPWA\\BlocoDeNotasPWA.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Jonas.sidney\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.9\\microsoft.aspnetcore.authorization.9.0.9.nupkg.sha512",
     "C:\\Users\\Jonas.sidney\\.nuget\\packages\\microsoft.aspnetcore.components\\9.0.9\\microsoft.aspnetcore.components.9.0.9.nupkg.sha512",
     "C:\\Users\\Jonas.sidney\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\9.0.9\\microsoft.aspnetcore.components.analyzers.9.0.9.nupkg.sha512",
+    "C:\\Users\\Jonas.sidney\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\9.0.9\\microsoft.aspnetcore.components.authorization.9.0.9.nupkg.sha512",
     "C:\\Users\\Jonas.sidney\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\9.0.9\\microsoft.aspnetcore.components.forms.9.0.9.nupkg.sha512",
     "C:\\Users\\Jonas.sidney\\.nuget\\packages\\microsoft.aspnetcore.components.web\\9.0.9\\microsoft.aspnetcore.components.web.9.0.9.nupkg.sha512",
     "C:\\Users\\Jonas.sidney\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\9.0.9\\microsoft.aspnetcore.components.webassembly.9.0.9.nupkg.sha512",

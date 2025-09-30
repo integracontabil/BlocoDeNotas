@@ -6,107 +6,71 @@ namespace BlocoDeNotasPWA.ViewModels;
 
 public class NotaViewModel
 {
-    private readonly ILocalStorageService _localStorage;
     private readonly SupabaseService _supabase;
+    private readonly AuthService _auth;
+    private readonly ILocalStorageService _localStorage;
     private const string StorageKey = "notas";
 
     public List<Nota> Notas { get; private set; } = new();
     public string Texto { get; set; } = string.Empty;
 
-    public NotaViewModel(ILocalStorageService localStorage, SupabaseService supabase)
+    public NotaViewModel(ILocalStorageService localStorage, SupabaseService supabase, AuthService auth)
     {
         _localStorage = localStorage;
         _supabase = supabase;
+        _auth = auth;
+
+        _auth.AuthStateChanged += OnAuthStateChanged;
     }
 
-    // 🔹 Carregar notas (Supabase → fallback LocalStorage)
+    private void OnAuthStateChanged()
+    {
+        if (_auth.IsAuthenticated)
+        {
+            // dispara carregamento em background
+            _ = Task.Run(async () => await CarregarNotas());
+        }
+        else
+        {
+            Notas = new List<Nota>();
+        }
+    }
+
     public async Task CarregarNotas()
     {
-        try
-        {
-            var notas = await _supabase.GetNotasAsync();
-
-            if (notas is not null && notas.Any())
-            {
-                Notas = notas;
-                await _localStorage.SetItemAsync(StorageKey, Notas);
-                Console.WriteLine("Carregado do Supabase.");
-            }
-            else
-            {
-                var stored = await _localStorage.GetItemAsync<List<Nota>>(StorageKey);
-                Notas = stored ?? new List<Nota>();
-                Console.WriteLine("Carregado do LocalStorage (Supabase vazio).");
-            }
-        }
-        catch
-        {
-            var stored = await _localStorage.GetItemAsync<List<Nota>>(StorageKey);
-            Notas = stored ?? new List<Nota>();
-            Console.WriteLine("Carregado do LocalStorage (erro Supabase).");
-        }
+        Notas = await _supabase.GetNotasAsync();
     }
 
-    // 🔹 Adicionar nota
     public async Task AdicionarNota()
     {
         if (string.IsNullOrWhiteSpace(Texto)) return;
 
-        var nota = new Nota { Texto = Texto };
+        var nota = new Nota
+        {
+            Texto = Texto,
+            CriadoEm = DateTime.UtcNow
+        };
+
+        var userId = _auth.GetUserId();
+        if (!string.IsNullOrEmpty(userId) && Guid.TryParse(userId, out var gid))
+            nota.UsuarioId = gid;
+
         Notas.Add(nota);
         Texto = string.Empty;
 
-        // Local
-        await _localStorage.SetItemAsync(StorageKey, Notas);
-
-        // Supabase
-        try
-        {
-            await _supabase.AddNotaAsync(nota);
-            Console.WriteLine($"Nota adicionada ao Supabase: {nota.Texto}");
-        }
-        catch
-        {
-            Console.WriteLine("Falha ao salvar no Supabase, mantida apenas no LocalStorage.");
-        }
+        await _supabase.AddNotaAsync(nota);
     }
 
-    // 🔹 Deletar nota
     public async Task DeletarNota(Guid id)
     {
         Notas.RemoveAll(n => n.Id == id);
-        await _localStorage.SetItemAsync(StorageKey, Notas);
-
-        try
-        {
-            await _supabase.DeleteNotaAsync(id);
-            Console.WriteLine($"Nota {id} deletada do Supabase.");
-        }
-        catch
-        {
-            Console.WriteLine("Falha ao deletar no Supabase, removida apenas do LocalStorage.");
-        }
+        await _supabase.DeleteNotaAsync(id);
     }
 
-    // 🔹 Alterar nota
     public async Task AlterarNota(Guid id, string novoTexto)
     {
         var nota = Notas.FirstOrDefault(n => n.Id == id);
-        if (nota != null)
-        {
-            nota.Texto = novoTexto;
-        }
-
-        await _localStorage.SetItemAsync(StorageKey, Notas);
-
-        try
-        {
-            await _supabase.UpdateNotaAsync(nota!);
-            Console.WriteLine($"Nota {id} atualizada no Supabase.");
-        }
-        catch
-        {
-            Console.WriteLine("Falha ao atualizar no Supabase, alterada apenas no LocalStorage.");
-        }
+        if (nota != null) nota.Texto = novoTexto;
+        await _supabase.UpdateNotaAsync(nota!);
     }
 }

@@ -1,5 +1,6 @@
 ﻿@page "/"
-@inject NotaViewModel Vm
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+@inject BlocoDeNotasPWA.ViewModels.NotaViewModel Vm
 
 <h3>Bloco de Notas</h3>
 
