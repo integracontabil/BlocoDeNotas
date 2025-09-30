@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "BlocoDeNotasPWA",
   "resources": {
-    "hash": "sha256-HTEMnWPDrZcaP7PBt1caSMZhGo+833v7kVvSBsPbLJU=",
+    "hash": "sha256-TxJQhPREorZ6PMYk4OQbNjhddhJS/lMSyU/SpaFoMcI=",
     "fingerprinting": {
       "Blazored.LocalStorage.12n6dz54qr.wasm": "Blazored.LocalStorage.wasm",
       "Microsoft.AspNetCore.Authorization.z6jo10m0rd.wasm": "Microsoft.AspNetCore.Authorization.wasm",
@@ -219,8 +219,8 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "BlocoDeNotasPWA.sanm4ova1i.wasm": "BlocoDeNotasPWA.wasm",
-      "BlocoDeNotasPWA.wg2nwm4abk.pdb": "BlocoDeNotasPWA.pdb"
+      "BlocoDeNotasPWA.4ib9i4mfyv.wasm": "BlocoDeNotasPWA.wasm",
+      "BlocoDeNotasPWA.0ab7q4kk0q.pdb": "BlocoDeNotasPWA.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.9ih887ebfz.js": "sha256-oS7IRiQoVt9ThQ7Y2UM3XoeY0JqPD02cg9IvRdufn2w="
@@ -448,10 +448,10 @@
       "WindowsBase.vy2l5u79y6.wasm": "sha256-ufB9Mo5joMyUs3DzXWWBFFIZNEVrt6h9N5stYB6Oln4=",
       "mscorlib.xd6mv31d55.wasm": "sha256-1YSLR2eZt3ceALFV//vZUF2AloxVil3VlrW1zZYPSEI=",
       "netstandard.kaml52uspo.wasm": "sha256-HLEwBpLfzKw2/zGSVzHzFJxznCkt/WIjahrziiMrOpA=",
-      "BlocoDeNotasPWA.sanm4ova1i.wasm": "sha256-jIwPOLPBNK6kipF7NGctOxjcsm/3h3wo6+Wfsx3XHag="
+      "BlocoDeNotasPWA.4ib9i4mfyv.wasm": "sha256-fKRdGtPvF1MQGhXRD3/GulfsteIEu7uh3h/WCd2oYso="
     },
     "pdb": {
-      "BlocoDeNotasPWA.wg2nwm4abk.pdb": "sha256-wJsbqs+f5/j4AwoAAG/FtglPv9AWb1SQle88n0neL9k="
+      "BlocoDeNotasPWA.0ab7q4kk0q.pdb": "sha256-2F6MbfvU72dGvHhNIN7XCqh6X+x5OUL6hoz1H4+VYpI="
     }
   },
   "cacheBootResources": true,
