@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BlocoDeNotasPWA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd5374260352c59cbc07566dc0733396c784a88d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3515ac1153b0656574790887eb941266bb2170ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("BlocoDeNotasPWA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BlocoDeNotasPWA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
