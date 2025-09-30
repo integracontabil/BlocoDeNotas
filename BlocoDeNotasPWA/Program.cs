@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.AspNetCore.Components.Authorization;
 using Blazored.LocalStorage;
 using BlocoDeNotasPWA;
 using BlocoDeNotasPWA.Services;
@@ -12,10 +13,19 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddBlazoredLocalStorage();
 
-// 🔹 SupabaseService registrado com DI
-builder.Services.AddScoped<SupabaseService>();
+// auth + provider
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
+builder.Services.AddAuthorizationCore();
 
-// ViewModel
+// app services
+builder.Services.AddScoped<SupabaseService>();
 builder.Services.AddScoped<NotaViewModel>();
 
-await builder.Build().RunAsync();
+var host = builder.Build();
+
+// inicializar AuthService antes da UI (restaura token-refresh se necessário)
+var auth = host.Services.GetRequiredService<AuthService>();
+await auth.InitializeAsync();
+
+await host.RunAsync();

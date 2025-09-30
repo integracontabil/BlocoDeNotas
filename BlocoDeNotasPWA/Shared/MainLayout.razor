@@ -1,18 +1,31 @@
 @inherits LayoutComponentBase
-
-<PageTitle>Bloco de Notas</PageTitle>
+@using Microsoft.AspNetCore.Components.Authorization
+@inject BlocoDeNotasPWA.Services.AuthService Auth
+@inject NavigationManager Nav
 
 <div class="page">
-    <div class="sidebar">
+    <div class="top-row px-4">
+        <a href="/">Bloco de Notas PWA</a>
+
+        <AuthorizeView>
+            <Authorized>
+                <button @onclick="Logout">Sair</button>
+            </Authorized>
+            <NotAuthorized>
+                <a href="/login">Login</a>
+            </NotAuthorized>
+        </AuthorizeView>
     </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/" target="_blank">Sobre</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+    <article class="content px-4">
+        @Body
+    </article>
 </div>
+
+@code {
+    private async Task Logout()
+    {
+        await Auth.LogoutAsync();
+        Nav.NavigateTo("/login");
+    }
+}

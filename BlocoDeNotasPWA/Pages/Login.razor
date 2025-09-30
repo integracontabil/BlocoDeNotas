@@ -1,0 +1,45 @@
+﻿@page "/login"
+@inject BlocoDeNotasPWA.Services.AuthService Auth
+@inject NavigationManager Nav
+
+<h3>Login</h3>
+
+@if (!string.IsNullOrEmpty(Mensagem))
+{
+    <p style="color:red">@Mensagem</p>
+}
+
+<div>
+    <label>Email:</label>
+    <input @bind="Email" type="email" />
+</div>
+
+<div>
+    <label>Senha:</label>
+    <input @bind="Senha" type="password" />
+</div>
+
+<button @onclick="FazerLogin">Entrar</button>
+
+<p>
+    Não tem conta? <a href="/register">Cadastre-se aqui</a>.
+</p>
+
+@code {
+    private string Email { get; set; } = string.Empty;
+    private string Senha { get; set; } = string.Empty;
+    private string Mensagem { get; set; } = string.Empty;
+
+    private async Task FazerLogin()
+    {
+        var sucesso = await Auth.LoginAsync(Email, Senha);
+        if (sucesso)
+        {
+            Nav.NavigateTo("/");
+        }
+        else
+        {
+            Mensagem = "Credenciais inválidas ou erro de conexão.";
+        }
+    }
+}

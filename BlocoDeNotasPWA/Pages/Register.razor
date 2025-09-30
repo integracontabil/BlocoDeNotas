@@ -1,0 +1,45 @@
+@page "/register"
+@inject BlocoDeNotasPWA.Services.AuthService Auth
+@inject NavigationManager Nav
+
+<h3>Cadastro</h3>
+
+@if (!string.IsNullOrEmpty(Mensagem))
+{
+    <p style="color:red">@Mensagem</p>
+}
+
+<div>
+    <label>Email:</label>
+    <input @bind="Email" type="email" />
+</div>
+
+<div>
+    <label>Senha:</label>
+    <input @bind="Senha" type="password" />
+</div>
+
+<button @onclick="FazerCadastro">Cadastrar</button>
+
+<p>
+    Já tem conta? <a href="/login">Faça login</a>.
+</p>
+
+@code {
+    private string Email { get; set; } = string.Empty;
+    private string Senha { get; set; } = string.Empty;
+    private string Mensagem { get; set; } = string.Empty;
+
+    private async Task FazerCadastro()
+    {
+        var sucesso = await Auth.RegisterAsync(Email, Senha);
+        if (sucesso)
+        {
+            Nav.NavigateTo("/login");
+        }
+        else
+        {
+            Mensagem = "Erro ao cadastrar. Verifique email e senha.";
+        }
+    }
+}
